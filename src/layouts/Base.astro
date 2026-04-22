@@ -1,0 +1,74 @@
+---
+import SEOHead from '../components/SEOHead.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogType?: string;
+  canonicalUrl?: string;
+  structuredData?: object | object[];
+  noindex?: boolean;
+}
+
+const props = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <SEOHead {...props} />
+  </head>
+  <body class="bg-ink text-paper antialiased">
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+      <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+        <a href="/" class="font-display text-xl font-semibold tracking-[-0.02em] text-paper hover:text-amber transition-colors">
+          Meridian
+        </a>
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="/#story" class="text-sm text-muted hover:text-paper transition-colors tracking-wide">Our Story</a>
+          <a href="/#waitlist" class="text-sm text-muted hover:text-paper transition-colors tracking-wide">Waitlist</a>
+          <a href="/about" class="text-sm text-muted hover:text-paper transition-colors tracking-wide">About</a>
+        </nav>
+        <a href="/#waitlist" class="text-sm font-medium px-4 py-2 border border-amber text-amber hover:bg-amber hover:text-ink transition-all duration-200 tracking-wide">
+          Join the List
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="border-t border-white/10 mt-24">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="flex flex-col md:flex-row justify-between items-start gap-8">
+          <div>
+            <p class="font-display text-lg font-semibold text-paper tracking-[-0.02em]">Meridian</p>
+            <p class="text-sm text-muted mt-1 max-w-xs leading-relaxed">Coffee at the Intersection of Origin and Craft. Coming 2026.</p>
+          </div>
+          <nav class="flex gap-8">
+            <a href="/" class="text-sm text-muted hover:text-paper transition-colors">Home</a>
+            <a href="/about" class="text-sm text-muted hover:text-paper transition-colors">About</a>
+            <a href="/#waitlist" class="text-sm text-muted hover:text-paper transition-colors">Waitlist</a>
+          </nav>
+        </div>
+        <div class="mt-10 pt-8 border-t border-white/10">
+          <p class="text-xs text-muted">© {new Date().getFullYear()} Meridian. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const header = document.getElementById('site-header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 60) {
+          header?.classList.add('bg-ink/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+        } else {
+          header?.classList.remove('bg-ink/90', 'backdrop-blur-md', 'border-b', 'border-white/10');
+        }
+      });
+    </script>
+  </body>
+</html>

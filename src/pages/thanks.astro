@@ -1,0 +1,74 @@
+---
+import Base from '../layouts/Base.astro';
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://meridian-k7p2.vercel.app';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "You're on the List — Meridian Specialty Coffee",
+  "url": `${siteUrl}/thanks`,
+  "description": "Thanks for joining the Meridian waitlist. We'll be in touch before launch with early access and origin stories."
+};
+---
+
+<Base
+  title="You're In | Meridian Specialty Coffee"
+  description="Thanks for joining the Meridian waitlist. We'll be in touch before launch with early access, origin stories, and a first look at our roast lineup."
+  structuredData={structuredData}
+  noindex={true}
+>
+
+  <section class="min-h-screen flex items-center justify-center px-6 py-32">
+    <div class="max-w-2xl w-full text-center">
+
+      <!-- Mark -->
+      <div class="mb-12 flex justify-center">
+        <div class="w-16 h-16 border border-amber/40 flex items-center justify-center">
+          <span class="font-display text-2xl text-amber font-light">✦</span>
+        </div>
+      </div>
+
+      <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-6">Specialty Coffee Waitlist</p>
+      <h1 class="font-display text-[clamp(3rem,8vw,5rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper mb-8">
+        You're on the List.
+      </h1>
+
+      <p class="text-muted text-lg leading-relaxed max-w-lg mx-auto mb-10">
+        Welcome to the Meridian waitlist. You'll hear from us before we launch — with early access, origin stories from our farms, and a first look at our inaugural roast lineup.
+      </p>
+
+      <div class="border border-white/10 p-8 text-left mb-12">
+        <p class="text-xs text-amber tracking-[0.15em] uppercase font-medium mb-5">What happens next</p>
+        <ul class="space-y-4 text-sm text-muted leading-relaxed">
+          <li class="flex gap-3">
+            <span class="text-amber font-medium flex-shrink-0">01</span>
+            <span>We'll send a short note from Ethiopia when our first lot is cupped and confirmed — usually two months before roasting begins.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-amber font-medium flex-shrink-0">02</span>
+            <span>Waitlist members get 48-hour early access before public launch, at founding-member pricing.</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-amber font-medium flex-shrink-0">03</span>
+            <span>You'll receive a one-page origin brief with your first order — the farm, the altitude, the process. No vague tasting notes.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/" class="inline-block border border-white/20 text-paper py-3 px-8 text-sm tracking-wide hover:border-amber hover:text-amber transition-colors duration-200">
+          ← Back to home
+        </a>
+        <a href="/about" class="inline-block bg-amber text-ink font-medium py-3 px-8 text-sm tracking-wide hover:bg-amber-light transition-colors duration-200">
+          Read our story
+        </a>
+      </div>
+
+      <p class="text-xs text-muted/50 mt-10">
+        We write once a month, when there's something worth saying. Unsubscribe at any time.
+      </p>
+    </div>
+  </section>
+
+</Base>

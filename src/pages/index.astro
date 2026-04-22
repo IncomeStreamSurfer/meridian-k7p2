@@ -1,0 +1,279 @@
+---
+import Base from '../layouts/Base.astro';
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://meridian-k7p2.vercel.app';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Meridian",
+    "url": siteUrl,
+    "logo": `${siteUrl}/favicon.svg`,
+    "description": "A specialty coffee brand launching soon with direct-trade single-origin roasts.",
+    "sameAs": []
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Meridian",
+    "url": siteUrl,
+    "description": "Coffee at the Intersection of Origin and Craft"
+  }
+];
+---
+
+<Base
+  title="Meridian — Specialty Coffee, Coming Soon"
+  description="Meridian is a specialty coffee brand launching soon. Join the waitlist for direct-trade single-origin roasts and a subscription built around discovery."
+  structuredData={structuredData}
+>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col justify-end pb-20 pt-32 px-6 relative overflow-hidden">
+    <!-- Background texture / visual -->
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_70%_40%,rgba(193,125,60,0.08),transparent)]"></div>
+    <div class="absolute top-0 right-0 w-px h-full bg-white/5"></div>
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Ccircle cx=\'30\' cy=\'30\' r=\'1\' fill=\'%23fff\'/%3E%3C/svg%3E'); background-size: 60px 60px;"></div>
+
+    <div class="max-w-6xl mx-auto w-full relative">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-end">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="text-amber text-xs font-medium tracking-[0.2em] uppercase mb-8">Specialty Coffee · Coming 2026</p>
+          <h1 class="font-display text-[clamp(3rem,8vw,6.5rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper mb-8">
+            Coffee at the<br/>
+            <em class="text-amber not-italic">Intersection</em><br/>
+            of Origin<br/>
+            and Craft
+          </h1>
+          <p class="text-muted text-lg leading-relaxed max-w-md mb-10">
+            We source direct from farms in Ethiopia, Colombia, and Sumatra — then roast each lot to express what the land gave us, not what the market expects. <a href="/about" class="text-paper/70 hover:text-amber transition-colors underline underline-offset-4 decoration-white/20">Every cup has a story.</a>
+          </p>
+          <p class="text-sm text-muted/60 tracking-wide">Early access opens to waitlist members first.</p>
+        </div>
+
+        <!-- Right: email form -->
+        <div id="waitlist" class="border border-white/10 p-8 lg:p-10 bg-surface/50 backdrop-blur-sm">
+          <p class="text-xs text-amber tracking-[0.15em] uppercase font-medium mb-3">Join the Waitlist</p>
+          <h2 class="font-display text-2xl font-light text-paper mb-2 leading-snug">Be first to know when we launch.</h2>
+          <p class="text-sm text-muted mb-8 leading-relaxed">Founding-member pricing, origin stories before release, and a first look at our inaugural roast lineup.</p>
+
+          <form id="signup-form" method="POST" action="/api/subscribe" class="space-y-4">
+            <!-- Honeypot -->
+            <div style="display:none" aria-hidden="true">
+              <input type="text" name="_hp_name" tabindex="-1" autocomplete="off" />
+            </div>
+            <input type="hidden" name="_render_ts" id="render-ts" />
+
+            <div>
+              <label for="email" class="sr-only">Email address</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="your@email.com"
+                class="w-full bg-transparent border border-white/20 text-paper placeholder-muted/50 px-4 py-3 text-sm focus:outline-none focus:border-amber transition-colors"
+              />
+            </div>
+            <button
+              type="submit"
+              class="w-full bg-amber text-ink font-medium py-3 px-6 text-sm tracking-wide hover:bg-amber-light transition-colors duration-200"
+              id="submit-btn"
+            >
+              Reserve My Spot
+            </button>
+            <p id="form-msg" class="text-xs text-center hidden"></p>
+          </form>
+
+          <p class="text-xs text-muted/50 mt-6 text-center">No spam. Unsubscribe anytime. We write once a month.</p>
+        </div>
+
+      </div>
+
+      <!-- Decorative number / label -->
+      <div class="mt-20 flex items-center gap-6 border-t border-white/10 pt-8">
+        <div class="flex gap-10">
+          <div>
+            <p class="font-display text-4xl font-light text-paper">3</p>
+            <p class="text-xs text-muted tracking-widest uppercase mt-1">Origins</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="font-display text-4xl font-light text-paper">100%</p>
+            <p class="text-xs text-muted tracking-widest uppercase mt-1">Direct Trade</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="font-display text-4xl font-light text-paper">2026</p>
+            <p class="text-xs text-muted tracking-widest uppercase mt-1">Launch Year</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY SECTION -->
+  <section id="story" class="py-28 px-6 border-t border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-[1fr_2fr] gap-16 items-start">
+        <div>
+          <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-4">The Brand Story</p>
+          <h2 class="font-display text-4xl lg:text-5xl font-light leading-[1.05] tracking-[-0.02em] text-paper">
+            Why we built Meridian
+          </h2>
+        </div>
+        <div class="space-y-6 text-muted text-base leading-relaxed">
+          <p>
+            Most coffee reaches you at two removes from the farm: a commodity broker, then a volume roaster. By the time it lands in your cup, the original character of the lot — the precise altitude, the fermentation time, the farmer's decision to pick late that year — has been smoothed into a serviceable average. That's not a failure of quality. It's the deliberate result of a system optimised for scale.
+          </p>
+          <p>
+            Meridian was built to opt out of that system entirely. We work directly with a small number of producers — in the highlands of Yirgacheffe, the Huila region of Colombia, and the volcanic slopes of Lake Toba in Sumatra — paying above market on every contract. Not as charity, but because we want farmers to be able to afford the patience that exceptional coffee demands.
+          </p>
+          <p class="text-paper/80">
+            Our roast philosophy is restraint. Every lot is tasted blind, multiple times, to find the temperature at which its particular sugars, acids, and aromatics come into alignment. We don't chase trend profiles. We chase the flavour the farmer grew.
+          </p>
+          <p>
+            <a href="/about" class="text-amber hover:text-amber-light transition-colors underline underline-offset-4 decoration-amber/30">
+              Read the full story behind Meridian →
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGINS SECTION -->
+  <section class="py-28 px-6 bg-surface/30 border-y border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-14">Where We Source</p>
+      <div class="grid md:grid-cols-3 gap-px bg-white/10">
+        <!-- Ethiopia -->
+        <div class="bg-ink p-10">
+          <p class="font-display text-6xl font-light text-amber/20 leading-none mb-6">01</p>
+          <h3 class="font-display text-2xl font-light text-paper mb-3">Yirgacheffe, Ethiopia</h3>
+          <p class="text-sm text-muted leading-relaxed mb-4">The birthplace of coffee. Our Yirgacheffe lots come from smallholder farms between 1,800 and 2,200m, where the nights stay cold enough to slow sugar development to something remarkable.</p>
+          <p class="text-xs text-amber/60 tracking-widest uppercase">Washed · Jasmine · Stone Fruit</p>
+        </div>
+        <!-- Colombia -->
+        <div class="bg-ink p-10">
+          <p class="font-display text-6xl font-light text-amber/20 leading-none mb-6">02</p>
+          <h3 class="font-display text-2xl font-light text-paper mb-3">Huila, Colombia</h3>
+          <p class="text-sm text-muted leading-relaxed mb-4">The Huila department produces some of Colombia's most expressive coffees. We work with a small cooperative whose members have farmed the same land for three generations.</p>
+          <p class="text-xs text-amber/60 tracking-widest uppercase">Natural · Caramel · Red Berry</p>
+        </div>
+        <!-- Sumatra -->
+        <div class="bg-ink p-10">
+          <p class="font-display text-6xl font-light text-amber/20 leading-none mb-6">03</p>
+          <h3 class="font-display text-2xl font-light text-paper mb-3">Lake Toba, Sumatra</h3>
+          <p class="text-sm text-muted leading-relaxed mb-4">Wet-hulled using the traditional Giling Basah method, our Sumatran lots develop a depth and earthiness that no other process can replicate. Complex, full-bodied, unforgettable.</p>
+          <p class="text-xs text-amber/60 tracking-widest uppercase">Wet-Hulled · Cedar · Dark Chocolate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY / VALUE PROPS -->
+  <section class="py-28 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-6">How We're Different</p>
+          <h2 class="font-display text-4xl lg:text-5xl font-light leading-[1.05] tracking-[-0.02em] text-paper mb-10">
+            A craft coffee subscription built around discovery.
+          </h2>
+          <div class="space-y-8">
+            <div class="flex gap-5">
+              <div class="w-px bg-amber/40 flex-shrink-0 mt-1"></div>
+              <div>
+                <h3 class="font-display text-lg font-light text-paper mb-2">Direct trade, not fair trade</h3>
+                <p class="text-sm text-muted leading-relaxed">Fair trade is a floor. Direct trade is a relationship. We visit every farm, agree on prices before harvest, and return year after year to the same producers.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="w-px bg-amber/40 flex-shrink-0 mt-1"></div>
+              <div>
+                <h3 class="font-display text-lg font-light text-paper mb-2">Roasted to order</h3>
+                <p class="text-sm text-muted leading-relaxed">We don't hold finished stock. Every bag is roasted within 72 hours of shipping, so you receive coffee at its peak — not coffee that has been sitting in a warehouse for six weeks.</p>
+              </div>
+            </div>
+            <div class="flex gap-5">
+              <div class="w-px bg-amber/40 flex-shrink-0 mt-1"></div>
+              <div>
+                <h3 class="font-display text-lg font-light text-paper mb-2">Origin notes, not flavour marketing</h3>
+                <p class="text-sm text-muted leading-relaxed">Every bag ships with a one-page origin brief: the farm, the elevation, the process, the cupping notes. You know what you're drinking and why it tastes the way it does.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Large pull quote -->
+        <div class="border-l-2 border-amber pl-10 py-4">
+          <blockquote class="font-display text-3xl lg:text-4xl font-light italic text-paper/80 leading-[1.15] tracking-[-0.01em]">
+            "The difference between a good cup and a great one is almost always information."
+          </blockquote>
+          <p class="text-sm text-muted mt-6">— On the Meridian philosophy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECOND CTA / WAITLIST REPEAT -->
+  <section class="py-24 px-6 bg-amber/5 border-y border-amber/20">
+    <div class="max-w-2xl mx-auto text-center">
+      <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-4">Limited Early Access</p>
+      <h2 class="font-display text-4xl lg:text-5xl font-light leading-[1.05] tracking-[-0.02em] text-paper mb-6">
+        The first 500 subscribers get founding-member pricing. Forever.
+      </h2>
+      <p class="text-muted text-base leading-relaxed mb-10">
+        Direct-trade single-origin roasts, delivered on your schedule. A subscription experience built around discovering something new each month.
+      </p>
+      <a href="#waitlist" class="inline-block bg-amber text-ink font-medium py-3 px-10 text-sm tracking-wide hover:bg-amber-light transition-colors duration-200">
+        Join the Waitlist
+      </a>
+      <p class="text-xs text-muted/50 mt-5">
+        Not sure yet? <a href="/about" class="text-muted hover:text-paper transition-colors underline underline-offset-2">Read our story first →</a>
+      </p>
+    </div>
+  </section>
+
+</Base>
+
+<script>
+  // Set render timestamp for spam protection
+  const tsEl = document.getElementById('render-ts') as HTMLInputElement | null;
+  if (tsEl) tsEl.value = Date.now().toString();
+
+  const form = document.getElementById('signup-form') as HTMLFormElement | null;
+  const msg = document.getElementById('form-msg');
+  const btn = document.getElementById('submit-btn') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!btn || !msg) return;
+    btn.disabled = true;
+    btn.textContent = 'Joining…';
+    try {
+      const res = await fetch('/api/subscribe', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        form.innerHTML = '<p class="text-center text-paper font-display text-xl font-light py-4">You\'re on the list. ✦</p><p class="text-center text-muted text-sm mt-2">Watch your inbox before we launch.</p>';
+      } else {
+        msg.textContent = data.error || 'Something went wrong — please try again.';
+        msg.className = 'text-xs text-center text-red-400 mt-2';
+        btn.disabled = false;
+        btn.textContent = 'Reserve My Spot';
+      }
+    } catch {
+      msg.textContent = 'Network error — please try again.';
+      msg.className = 'text-xs text-center text-red-400 mt-2';
+      btn.disabled = false;
+      btn.textContent = 'Reserve My Spot';
+    }
+  });
+</script>

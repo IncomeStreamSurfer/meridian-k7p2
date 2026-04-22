@@ -1,0 +1,169 @@
+---
+import Base from '../layouts/Base.astro';
+
+const siteUrl = import.meta.env.PUBLIC_SITE_URL || 'https://meridian-k7p2.vercel.app';
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Meridian",
+    "url": siteUrl,
+    "description": "A specialty coffee brand built on direct-trade sourcing, craft roasting, and a belief that every cup should mean something."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Why We Started Meridian",
+    "url": `${siteUrl}/about`,
+    "description": "Learn the story behind Meridian — a specialty coffee brand built on direct-trade sourcing, craft roasting, and a belief that every cup should mean something."
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": `${siteUrl}/about` }
+    ]
+  }
+];
+---
+
+<Base
+  title="Our Story | Meridian Specialty Coffee"
+  description="Learn the story behind Meridian — a specialty coffee brand built on direct-trade sourcing, craft roasting, and a belief that every cup should mean something."
+  structuredData={structuredData}
+>
+
+  <!-- Page header -->
+  <section class="pt-36 pb-20 px-6 border-b border-white/10">
+    <div class="max-w-6xl mx-auto">
+      <p class="text-xs text-amber tracking-[0.2em] uppercase font-medium mb-5">Direct Trade Coffee Roaster</p>
+      <h1 class="font-display text-[clamp(3rem,7vw,5.5rem)] font-light leading-[0.95] tracking-[-0.02em] text-paper max-w-3xl">
+        Why We<br/><em class="text-amber not-italic">Started</em><br/>Meridian
+      </h1>
+    </div>
+  </section>
+
+  <!-- Main story -->
+  <section class="py-24 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-[2fr_1fr] gap-20 items-start">
+        <div class="space-y-8 text-base leading-relaxed">
+
+          <p class="text-paper/90 text-lg leading-relaxed font-light">
+            There's a moment at about 1,900 metres above sea level in the Gedeo Zone of southern Ethiopia, just as the morning fog burns off the tree canopy, when you understand why this is where coffee began. The smell alone — green, mossy, almost floral — tells you something that no tasting note on a bag ever quite captures.
+          </p>
+
+          <p class="text-muted">
+            We made that trip in the autumn of 2024. Not as buyers. As students. The farmers we met — Girma Bekele and his family, who have worked the same hillside for four generations — showed us something the specialty coffee industry talks about but rarely practises: patience. They pick cherry by cherry, over multiple passes through the same tree, choosing only the fruit that is exactly ripe. A yield that takes twice as long. A quality that commands real money, if you can find a buyer who pays for it.
+          </p>
+
+          <p class="text-muted">
+            We founded Meridian because we wanted to be that buyer. And then find a thousand people who wanted to drink that coffee.
+          </p>
+
+          <h2 class="font-display text-3xl font-light text-paper tracking-[-0.01em] pt-4">The direct trade model, plainly stated</h2>
+
+          <p class="text-muted">
+            Direct trade is a term that gets used loosely. At Meridian it means three specific things. First, we negotiate price directly with the producer, before harvest, without a broker in the middle. Second, we pay a premium above market — currently 35-50% above the C-price benchmark — because exceptional farming practices should be economically sustainable, not economically heroic. Third, we return to the same producers year after year, building the kind of relationship where feedback travels in both directions.
+          </p>
+
+          <p class="text-muted">
+            The alternative — buying through a spot market or commodity aggregator — produces consistent coffee. It also produces anonymous coffee. When you can't trace a lot back to a single farm, you can't tell the story of that coffee, and you certainly can't improve it by talking to the person who grew it.
+          </p>
+
+          <h2 class="font-display text-3xl font-light text-paper tracking-[-0.01em] pt-4">How we roast</h2>
+
+          <p class="text-muted">
+            Our roast philosophy is built on a single premise: the flavour potential of a coffee is set at origin. The roaster's job is not to add character — it's to reveal what's already there without obscuring it. That means lighter profiles for the high-grown Ethiopian lots, where delicate florals and stone-fruit acidity live very close to the surface. It means longer development for the Sumatran wet-hulled lots, where the body and sweetness take time to emerge. And it means frequent blind cuppings where no one knows which lot they're evaluating.
+          </p>
+
+          <p class="text-muted">
+            Every roast batch is tasted within 48 hours of roasting, again at 5 days, and again at 10 days. We release coffee when it's ready — not before. On a practical level, that means you'll receive bags that have been rested appropriately for espresso or filter, labelled accordingly.
+          </p>
+
+          <h2 class="font-display text-3xl font-light text-paper tracking-[-0.01em] pt-4">What we're building toward</h2>
+
+          <p class="text-muted">
+            Meridian launches in 2026 with three inaugural single-origin lots: the Yirgacheffe washed from Girma Bekele's farm, a natural-process lot from the Huila department of Colombia, and a wet-hulled Mandheling from the shores of Lake Toba in Sumatra. Each will ship with a full origin brief — the kind of information that, once you have it, makes the coffee taste different. Better. More like itself.
+          </p>
+
+          <p class="text-muted">
+            After launch, we'll add seasonal lots as we find farms that meet the same standard. We'll build the subscription around discovery — you'll try origins and processes you haven't tried before, with the context to understand what you're tasting. That's the Meridian promise.
+          </p>
+
+          <!-- CTA -->
+          <div class="pt-8 flex flex-col sm:flex-row gap-4 items-start">
+            <a href="/#waitlist" class="inline-block bg-amber text-ink font-medium py-3 px-8 text-sm tracking-wide hover:bg-amber-light transition-colors duration-200">
+              Join the Waitlist
+            </a>
+            <a href="/thanks" class="inline-block border border-white/20 text-paper py-3 px-8 text-sm tracking-wide hover:border-amber hover:text-amber transition-colors duration-200">
+              Already signed up?
+            </a>
+          </div>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-10 lg:sticky lg:top-24">
+          <!-- Origins quick reference -->
+          <div class="border border-white/10 p-8">
+            <p class="text-xs text-amber tracking-[0.15em] uppercase font-medium mb-5">Our Origins</p>
+            <div class="space-y-5">
+              <div>
+                <p class="text-sm font-medium text-paper mb-1">Yirgacheffe, Ethiopia</p>
+                <p class="text-xs text-muted leading-relaxed">Washed · 1,800–2,200m · Jasmine, Bergamot, Stone Fruit</p>
+              </div>
+              <div class="w-full h-px bg-white/10"></div>
+              <div>
+                <p class="text-sm font-medium text-paper mb-1">Huila, Colombia</p>
+                <p class="text-xs text-muted leading-relaxed">Natural · 1,600–1,900m · Caramel, Red Berry, Hibiscus</p>
+              </div>
+              <div class="w-full h-px bg-white/10"></div>
+              <div>
+                <p class="text-sm font-medium text-paper mb-1">Lake Toba, Sumatra</p>
+                <p class="text-xs text-muted leading-relaxed">Wet-Hulled · 1,400–1,600m · Cedar, Dark Chocolate, Tobacco</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pull quote -->
+          <div class="border-l-2 border-amber pl-6 py-2">
+            <p class="font-display text-xl font-light italic text-paper/70 leading-snug">
+              "We pick cherry by cherry. A yield that takes twice as long — and a quality that earns it."
+            </p>
+            <p class="text-xs text-muted mt-3">— Girma Bekele, Yirgacheffe</p>
+          </div>
+
+          <!-- Values -->
+          <div class="border border-white/10 p-8">
+            <p class="text-xs text-amber tracking-[0.15em] uppercase font-medium mb-5">What We Stand For</p>
+            <ul class="space-y-3 text-xs text-muted leading-relaxed">
+              <li class="flex gap-2"><span class="text-amber">✦</span> Direct trade at a real premium — not a sticker</li>
+              <li class="flex gap-2"><span class="text-amber">✦</span> Transparency on price, process, and provenance</li>
+              <li class="flex gap-2"><span class="text-amber">✦</span> Roasted to order, shipped when ready</li>
+              <li class="flex gap-2"><span class="text-amber">✦</span> Every bag carries the farm's story</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA band -->
+  <section class="py-20 px-6 bg-surface/30 border-y border-white/10">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="font-display text-3xl lg:text-4xl font-light text-paper tracking-[-0.01em] mb-5">
+        Ready to taste what we're building?
+      </h2>
+      <p class="text-muted text-base leading-relaxed mb-8">
+        Join the Meridian waitlist for early access, founding-member pricing, and first look at our inaugural single-origin lineup. <a href="/" class="text-amber hover:text-amber-light transition-colors underline underline-offset-4 decoration-amber/30">Back to the home page →</a>
+      </p>
+      <a href="/#waitlist" class="inline-block bg-amber text-ink font-medium py-3 px-10 text-sm tracking-wide hover:bg-amber-light transition-colors duration-200">
+        Join the Waitlist
+      </a>
+    </div>
+  </section>
+
+</Base>
